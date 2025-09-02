@@ -1,0 +1,17 @@
+version: 2
+
+sources:
+  - name: dbt_weather_dataset
+    database: dbt-weather-demo
+    schema: dbt_weather_dataset
+    tables:
+      - name: raw_hourly_weather
+      - name: raw_daily_weather
+
+models:
+  - name: stg_hourly_weather
+    description: "Cleaned hourly weather data"
+  - name: stg_daily_weather
+    description: "Cleaned daily weather data"
+  - name: weather_summary
+    description: "Aggregated daily weather summary combining hourly & daily data"
