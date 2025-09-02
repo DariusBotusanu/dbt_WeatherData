@@ -1,4 +1,4 @@
-# dbt_WeatherData
+# dbt_WeatherData (demo project)
 
 A small project that experiments with **dbt (data build tool)** and **Google BigQuery** to transform weather data into analysis-ready tables, which are then used to train a simple machine learning model.
 
@@ -45,9 +45,29 @@ At this stage the data may be:
 The **staging layer** acts as a cleaning and normalization step.  
 - Standardizes naming conventions (e.g., `temp` → `temperature_celsius`).  
 - Applies basic data type conversions (strings to numbers, timestamps to proper formats).  
-- Removes or flags bad/missing values.  
+- Removes or flags bad/missing values.
+
+## Prerequisites
+
+Before running this project, make sure you have the following installed:
+
+- **Python 3.9+** (for running scripts and dbt)
+- **dbt-core** and **dbt-bigquery** (`pip install dbt-bigquery`)
+- **Google Cloud CLI (gcloud)**  
+  - Required for authentication and project setup.
+- **A Google Cloud Project** with **BigQuery enabled**.
+
+### Authentication
+
+This project uses **OAuth-based authentication via the Google Cloud CLI**.  
+
+1. Install the [Google Cloud CLI](https://cloud.google.com/sdk/docs/install).  
+2. Log in to your Google account:
+   ```bash
+   gcloud auth application-default login
 
 👉 **Think of staging as “make the raw data usable.”**
 
 After the models are defined, dbt can be simply run from the terminal using the following command: dbt run
+
 
