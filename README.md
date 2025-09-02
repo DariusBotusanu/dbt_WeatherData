@@ -47,6 +47,10 @@ The **staging layer** acts as a cleaning and normalization step.
 - Applies basic data type conversions (strings to numbers, timestamps to proper formats).  
 - Removes or flags bad/missing values.
 
+👉 **Think of staging as “make the raw data usable.”**
+
+After the models are defined, dbt can be simply run from the terminal using the following command: dbt run
+
 ## Prerequisites
 
 Before running this project, make sure you have the following installed:
@@ -65,9 +69,5 @@ This project uses **OAuth-based authentication via the Google Cloud CLI**.
 2. Log in to your Google account:
    ```bash
    gcloud auth application-default login
-
-👉 **Think of staging as “make the raw data usable.”**
-
-After the models are defined, dbt can be simply run from the terminal using the following command: dbt run
 
 
