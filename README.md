@@ -49,6 +49,5 @@ The **staging layer** acts as a cleaning and normalization step.
 
 👉 **Think of staging as “make the raw data usable.”**
 
-Command to run staging models:
-```bash
-dbt run --models staging.*
+After the models are defined, dbt can be simply run from the terminal using the following command: dbt run
+
