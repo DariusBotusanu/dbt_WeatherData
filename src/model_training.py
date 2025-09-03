@@ -52,8 +52,6 @@ class RFHyperparameterTuning:
             model.fit(self.X_train, self.y_train)
             y_pred = model.predict(self.X_test)
 
-            signature = mlflow.infer_signature(self.X_test, y_pred)
-
             mse = mean_squared_error(self.y_test, y_pred)
             r2 = r2_score(self.y_test, y_pred)
 
