@@ -11,3 +11,6 @@ wheels/
 
 #
 ./credentials
+
+#logs from dbt
+./logs
