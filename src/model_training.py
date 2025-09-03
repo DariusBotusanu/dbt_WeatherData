@@ -98,6 +98,9 @@ class RFHyperparameterTuning:
 
         # save the model
         model_path = os.path.join(PROJECT_ROOT, "src", "saved_models", "model.pkl")
+        if not os.path.exists(os.path.join(PROJECT_ROOT, "src", "saved_models")):
+            os.mkdir(os.path.join(PROJECT_ROOT, "src", "saved_models"))
+
         with open(model_path, "wb") as f:
             pickle.dump(model, f)
 
