@@ -39,7 +39,7 @@ class RFHyperparameterTuning:
         self.y_train = y_train
         self.y_test = y_test
 
-        mlflow.set_experiment("temperature_prediction")
+        mlflow.set_experiment("temperature_prediction_demo")
 
     def objective(self, trial):
         n_estimators = trial.suggest_int("n_estimators", 10, 100)
