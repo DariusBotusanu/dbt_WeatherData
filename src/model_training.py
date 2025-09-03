@@ -82,15 +82,26 @@ class RFHyperparameterTuning:
     def save_model(self, params: dict):
         model = RandomForestRegressor(**params)
         model.fit(self.X_train, self.y_train)
-        model_params = model.get_params()
 
-        mlflow.log_params(params)
+        # Log predictions
+        model_params = model.get_params()
+        mlflow.log_params(model_params)
+
+        # Log metrics
+        prediction = model.predict(self.X_test)
+        mse = mean_squared_error(self.y_test, prediction)
+        r2 = r2_score(self.y_test, prediction)
+
+        mlflow.log_metric("MSE", mse)
+        mlflow.log_metric("RMSE", np.sqrt(mse))
+        mlflow.log_metric("r2", r2)
 
         # save the model
         model_path = os.path.join(PROJECT_ROOT, "src", "saved_models", "model.pkl")
         with open(model_path, "wb") as f:
             pickle.dump(model, f)
 
+        # Log the model to mlflow
         mlflow.sklearn.log_model(sk_model=model, artifact_path=model_path)
 
         return model
